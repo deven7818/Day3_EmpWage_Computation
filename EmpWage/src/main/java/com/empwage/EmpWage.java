@@ -9,31 +9,40 @@ public class EmpWage {
 		
 		int isFullTime = 1;
 		int isPartTime = 2;
-		int dailyWage;
 		int wagePerHr = 20;
-		int workingHr;
+		int workingHr=0;
+		int daysInMonth=20;
+		int monthlyTotalWage=0;
+		int dailyWageArray[] = new int[20];
 		
-		
-		int empCheck= (int)(Math.floor(Math.random() *10)) % 3;
-		
-		switch(empCheck) {
-			case 1 :
-				System.out.println("Employee is full Present");
-				workingHr = 8;
-				break;
+		for(int i=0;i<daysInMonth;i++) {
 			
-			case 2 :
-				System.out.println("Employee is part Time present");
-				workingHr = 4;
-				break;
+			int empCheck= (int)(Math.floor(Math.random() *10)) % 3;
 		
-			default :	
-				System.out.println("Employee is Absent");
-				workingHr = 0;
+			switch(empCheck) {
+				case 1 :
+					
+					workingHr = 8;
+					break;
+			
+				case 2 :
+					
+					workingHr = 4;
+					break;
+		
+				default :	
+					
+					workingHr = 0;
+			}
+			dailyWageArray[i] = workingHr * wagePerHr;
+		}	
+		
+		for(int j=0; j<daysInMonth; j++) {
+			int day = j+1;
+			System.out.println("Day " + day + " wage is " + dailyWageArray[j]);
+			monthlyTotalWage = monthlyTotalWage + dailyWageArray[j];
 		}
-		
-		dailyWage = workingHr * wagePerHr;
-		System.out.println("Empolyee daily wage is " + dailyWage);
+		System.out.println("\n Monthly wage is " + monthlyTotalWage);
 	}
 
 }
