@@ -1,6 +1,5 @@
 package com.empwage;
 
-import java.util.Scanner;
 
 public class EmpWage {
 
@@ -11,11 +10,13 @@ public class EmpWage {
 		int isPartTime = 2;
 		int wagePerHr = 20;
 		int workingHr=0;
+		int totalWorkingHr=0;
 		int daysInMonth=20;
+		int maxWorkingHrs = 100;
 		int monthlyTotalWage=0;
 		int dailyWageArray[] = new int[20];
 		
-		for(int i=0;i<daysInMonth;i++) {
+		for(int i=0; i<daysInMonth && totalWorkingHr<maxWorkingHrs ; i++) {
 			
 			int empCheck= (int)(Math.floor(Math.random() *10)) % 3;
 		
@@ -34,6 +35,7 @@ public class EmpWage {
 					
 					workingHr = 0;
 			}
+			totalWorkingHr += workingHr;
 			dailyWageArray[i] = workingHr * wagePerHr;
 		}	
 		
